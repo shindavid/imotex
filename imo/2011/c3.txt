@@ -1,0 +1,17 @@
+%% IMO 2011 C3
+%% variant of: IMO 2011 Q2
+%% transcribed by: Peter Jin
+%% license: CC-BY-SA
+
+Let $\mathcal S$ be a finite set of at least two points in the plane.
+Assume that no three points of $\mathcal S$ are collinear.
+By a \emph{windmill} we mean a process as follows.
+Start with a line $\ell$ going through a point $P\in\mathcal S$.
+Rotate $\ell$ clockwise around the \emph{pivot} $P$ until the line contains
+  another point $Q$ of $\mathcal S$.
+The point $Q$ now takes over as the new pivot.
+This process continues indefinitely, with the pivot always being a point from
+  $\mathcal S$.
+Show that for a suitable $P\in\mathcal S$ and a suitable starting line $\ell$
+  containing $P$, the resulting windmill will visit each point of $\mathcal S$
+  as a pivot infinitely often.
