@@ -1,7 +1,7 @@
 %% IMO 2011 G8
 %% variant of: IMO 2011 Q6
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $ABC$ be an acute triangle with circumcircle $\omega$.
 Let $t$ be a tangent line to $\omega$.

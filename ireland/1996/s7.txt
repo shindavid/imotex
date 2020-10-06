@@ -1,7 +1,7 @@
 %% Ireland 1996 Q7
 %% From "Mathematical Contests 1996-1997", compiled by Titu Andreescu and Kiran Kedlaya
 %% transcribed by: David Shin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 It suffices to show $\sum_{n=1}^\infty n/2^n = 2$:
 

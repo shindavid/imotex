@@ -1,7 +1,7 @@
 %% IMO 2011 C3
 %% variant of: IMO 2011 Q2
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $\mathcal S$ be a finite set of at least two points in the plane.
 Assume that no three points of $\mathcal S$ are collinear.

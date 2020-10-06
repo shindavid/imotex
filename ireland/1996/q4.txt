@@ -1,7 +1,7 @@
 %% Ireland 1996 Q4
 %% From "Mathematical Contests 1996-1997", compiled by Titu Andreescu and Kiran Kedlaya
 %% transcribed by: David Shin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $F$ be the midpoint of side $BC$ of triangle $ABC$.
 
