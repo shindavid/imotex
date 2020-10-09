@@ -1,6 +1,6 @@
 %% IMO 2011 G5
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $ABC$ be a triangle with incenter $I$ and circumcircle $\omega$.
 Let $D$ and $E$ be the second intersection points of $\omega$ with the lines

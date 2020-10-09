@@ -1,6 +1,6 @@
 %% IMO 2011 G1
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $ABC$ be an acute triangle.
 Let $\omega$ be a circle whose center $L$ lies on the side $BC$.

@@ -1,6 +1,6 @@
 %% IMO 2011 G7
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $ABCDEF$ be a convex hexagon all of whose sides are tangent to a circle
   $\omega$ with center $O$.

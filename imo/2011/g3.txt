@@ -1,6 +1,6 @@
 %% IMO 2011 G3
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $ABCD$ be a convex quadrilateral whose sides $AD$ and $BC$ are not parallel.
 Suppose that the circles with diameters $AB$ and $CD$ meet at points $E$ and $F$

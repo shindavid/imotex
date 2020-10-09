@@ -1,6 +1,6 @@
 %% IMO 2011 G2
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Let $A_1A_2A_3A_4$ be a non-cyclic quadrilateral.
 Let $O_1$ and $r_1$ be the circumcenter and the circumradius of the triangle
