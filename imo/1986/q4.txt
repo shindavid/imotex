@@ -1,0 +1,10 @@
+%% IMO 1986 Q4
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $A$, $B$ be adjacent vertices of a regular $n$-gon ($n \ge 5$) in the plane
+  having center at $O$.
+A triangle $XYZ$, which is congruent to and initially coincides with $OAB$,
+  moves in the plane in such a way that $Y$ and $Z$ each trace out the whole
+  boundary of the polygon, $X$ remaining inside the polygon.
+Find the locus of $X$.

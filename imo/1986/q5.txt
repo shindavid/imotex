@@ -1,0 +1,11 @@
+%% IMO 1986 Q5
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Find all functions $f$, defined on the non-negative real numbers and taking
+  non-negative real values, such that:
+\begin{enumerate}
+\item $f(xf(y))f(y) = f(x+y)$ for all $x$, $y \ge 0$,
+\item $f(2) = 0$,
+\item $f(x) \neq 0$ for $0 \le x < 2$.
+\end{enumerate}

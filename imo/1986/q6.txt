@@ -1,0 +1,11 @@
+%% IMO 1986 Q6
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+One is given a finite set of points in the plane, each point having integer
+  coordinates.
+Is it always possible to color some of the points in the set red and the
+  remaining points white in such a way that for any straight line $L$ parallel
+  to either one of the coordinate axes the difference (in absolute value)
+  between the number of white points and red points on $L$ is not greater than
+  $1$?
