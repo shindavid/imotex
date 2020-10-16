@@ -360,16 +360,16 @@ impl LatexTokenizer {
 }
 
 #[derive(Clone)]
-pub struct AnnotatedLatex {
+pub struct AnnotatedLatexDocument {
   content:  String,
 }
 
-impl AnnotatedLatex {
-  pub fn open<P: AsRef<Path>>(path: &P) -> Result<AnnotatedLatex, IoError> {
+impl AnnotatedLatexDocument {
+  pub fn open<P: AsRef<Path>>(path: &P) -> Result<AnnotatedLatexDocument, IoError> {
     let f = File::open(path)?;
     let reader = BufReader::new(f);
     let mut header = true;
-    let mut file = AnnotatedLatex{content: String::new()};
+    let mut file = AnnotatedLatexDocument{content: String::new()};
     for line in reader.lines() {
       let line = line.unwrap();
       if header {

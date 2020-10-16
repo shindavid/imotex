@@ -6,7 +6,7 @@
 
 extern crate latex_tokenizer;
 
-use latex_tokenizer::{AnnotatedLatex};
+use latex_tokenizer::{AnnotatedLatexDocument};
 
 use std::path::{PathBuf};
 
@@ -19,8 +19,8 @@ fn main() {
   ];
   for &(tag, year, qs) in corpus.iter() {
     for q in qs.iter() {
-      let latex = AnnotatedLatex::open(&PathBuf::from(format!("{}/{}/{}.txt", tag, year, q))).unwrap();
-      let tokens = latex.tokenize();
+      let doc = AnnotatedLatexDocument::open(&PathBuf::from(format!("{}/{}/{}.txt", tag, year, q))).unwrap();
+      let tokens = doc.tokenize();
       println!("DEBUG: {}/{}/{}: {:?}", tag, year, q, tokens);
     }
   }
