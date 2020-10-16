@@ -1,6 +1,6 @@
 %% IMO 2020 Q5
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 A deck of $n > 1$ cards is given.
 A positive integer is written on each card.

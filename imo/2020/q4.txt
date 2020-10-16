@@ -1,6 +1,6 @@
 %% IMO 2020 Q4
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 There is an integer $n > 1$.
 There are $n^2$ stations on a slope of a mountain, all at different altitudes.

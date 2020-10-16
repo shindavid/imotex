@@ -1,6 +1,6 @@
 %% IMO 2020 Q3
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 There are $4n$ pebbles of weights $1,2,3,\ldots,4n$.
 Each pebble is coloured in one of $n$ colours and there are four pebbles of each

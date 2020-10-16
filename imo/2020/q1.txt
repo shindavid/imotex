@@ -1,6 +1,6 @@
 %% IMO 2020 Q1
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Consider the convex quadrilateral $ABCD$.
 The point $P$ is in the interior of $ABCD$.
