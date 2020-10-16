@@ -1,0 +1,20 @@
+[package]
+name = "latex_tokenizer"
+authors = ["Peter Jin <peterhaijin@gmail.com>"]
+version = "0.1.0-devel"
+edition = "2018"
+license = "MPL-2.0"
+
+[profile.release]
+panic = "abort"
+overflow-checks = true
+incremental = false
+codegen-units = 1
+
+[lib]
+name = "latex_tokenizer"
+path = "latex_tokenizer.rs"
+
+[[bin]]
+name = "tokenize_corpus"
+path = "tokenize_corpus.rs"
