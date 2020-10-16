@@ -1,0 +1,7 @@
+%% IMO 2013 G5
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCDEF$ be a convex hexagon with $AB = DE$, $BC = EF$, $CD = FA$, and
+  $\angle A - \angle D = \angle C - \angle F = \angle E - \angle B$.
+Prove that the diagonals $AD$, $BE$, and $CF$ are concurrent.

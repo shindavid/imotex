@@ -1,0 +1,10 @@
+%% IMO 2013 G6
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let the excircle of the triangle $ABC$ lying opposite to $A$ touch its side
+  $BC$ at the point $A_1$.
+Define the points $B_1$ and $C_1$ analogously.
+Suppose that the circumcentre of the triangle $A_1B_1C_1$ lies on the
+  circumcircle of the triangle $ABC$.
+Prove that triangle $ABC$ is right-angled.
