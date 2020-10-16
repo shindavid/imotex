@@ -1,0 +1,12 @@
+%% IMO 2012 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In the triangle $ABC$ the point $J$ is the center of the excircle opposite to
+  $A$.
+This excircle is tangent to the side $BC$ at $M$, and to the lines $AB$ and $AC$
+  at $K$ and $L$ respectively.
+The lines $LM$ and $BJ$ meet at $F$, and the lines $KM$ and $CJ$ meet at $G$.
+Let $S$ be the point of intersection of the lines $AF$ and $BC$, and let $T$ be
+  the point of intersection of the lines $AG$ and $BC$.
+Prove that $M$ is the midpoint of $ST$.

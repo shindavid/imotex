@@ -1,0 +1,10 @@
+%% IMO 2012 G5
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be a triangle with $\angle BCA = 90^\circ$, and let $C_0$ be the
+  foot of the altitude from $C$.
+Choose a point $X$ in the interior of the segment $CC_0$, and let $K,L$ be the
+  points on the segments $AX,BX$ for which $BK = BC$ and $AL = AC$ respectively.
+Denote by $M$ the intersection of $AL$ and $BK$.
+Show that $MK = ML$.

@@ -1,0 +1,12 @@
+%% IMO 2012 G8
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be a triangle with circumcircle $\omega$ and $\ell$ a line without
+  common points with $\omega$.
+Denote by $P$ the foot of the perpendicular from the center of $\omega$ to
+  $\ell$.
+The side-lines $BC,CA,AB$ intersect $\ell$ at the points $X,Y,Z$ different from
+  $P$.
+Prove that the circumcircles of the triangles $AXP$, $BYP$, and $CZP$ have a
+  common point different from $P$ or are mutually tangent at $P$.
