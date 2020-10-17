@@ -1,0 +1,10 @@
+%% IMO 2006 G4
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+A point $D$ is chosen on the side $AC$ of a triangle $ABC$ with
+  $\angle C < \angle A < 90^\circ$ in such a way that $BD = BA$.
+The incircle of $ABC$ is tangent to $AB$ and $AC$ at points $K$ and $L$
+  respectively.
+Let $J$ be the incentre of triangle $BCD$.
+Prove that the line $KL$ intersects the line segment $AJ$ at its midpoint.

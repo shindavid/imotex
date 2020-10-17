@@ -1,0 +1,13 @@
+%% IMO 2006 G8
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCD$ be a convex quadrilateral.
+A circle passing through the points $A$ and $D$ and a circle passing through
+  the points $B$ and $C$ are externally tangent at a point $P$ inside the
+  quadrilateral.
+Suppose that
+  $$\angle PAB + \angle PDC \le 90^\circ$$
+  and
+  $$\angle PBA + \angle PCD \le 90^\circ$$.
+Prove that $AB + CD \ge BC + AD$.

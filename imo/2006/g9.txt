@@ -1,0 +1,12 @@
+%% IMO 2006 G9
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Points $A_1,B_1,C_1$ are chosen on the sides $BC,CA,AB$ of a triangle $ABC$,
+  respectively.
+The circumcircles of triangles $AB_1C_1$, $BC_1A_1$, $CA_1B_1$ intersect the
+  circumcircle of triangle $ABC$ again at points $A_2$, $B_2$, $C_2$
+  respectively ($A_2 \neq A$, $B_2 \neq B$, $C_2 \neq C$).
+Points $A_3,B_3,C_3$ are symmetric to $A_1,B_1,C_1$ with respect to the
+  midpoints of the sides $BC,CA,AB$ respectively.
+Prove that the triangles $A_2B_2C_2$ and $A_3B_3C_3$ are similar.

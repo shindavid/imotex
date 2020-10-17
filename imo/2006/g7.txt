@@ -1,0 +1,13 @@
+%% IMO 2006 G7
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In a triangle $ABC$, let $M_a,M_b,M_c$ be respectively the midpoints of the
+  sides $BC,CA,AB$ and $T_a,T_b,T_c$ be the midpoints of the arcs $BC,CA,AB$ of
+  the circumcircle of $ABC$, not containing the opposite vertices.
+For $i \in \{a, b, c\}$, let $\omega_i$ be the circle with $M_iT_i$ as diameter.
+Let $p_i$ be the common external tangent to $\omega_j,\omega_k$
+  ($\{i, j, k\} = \{a, b, c\}$) such that $\omega_i$ lies on the opposite side
+  of $p_i$ than $\omega_j,\omega_k$ do.
+Prove that the lines $p_a,p_b,p_c$ form a triangle similar to $ABC$ and find the
+  ratio of similitude.

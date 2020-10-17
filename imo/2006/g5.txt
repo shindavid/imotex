@@ -1,0 +1,10 @@
+%% IMO 2006 G5
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In triangle $ABC$, let $J$ be the centre of the excircle tangent to side $BC$
+  at $A_1$ and to the extensions of sides $AC$ and $AB$ at $B_1$ and $C_1$
+  respectively.
+Suppose that the lines $A_1B_1$ and $AB$ are perpendicular and intersect at $D$.
+Let $E$ be the foot of the perpendicular from $C_1$ to line $DJ$.
+Determine the angles $\angle BEA_1$ and $\angle AEB_1$.

@@ -1,0 +1,10 @@
+%% IMO 2006 G3
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCDE$ be a convex pentagon such that
+  $$\angle BAC = \angle CAD = \angle DAE$$
+  and
+  $$\angle ABC = \angle ACD = \angle ADE$$.
+The diagonals $BD$ and $CE$ meet at $P$.
+Prove that the line $AP$ bisects the side $CD$.

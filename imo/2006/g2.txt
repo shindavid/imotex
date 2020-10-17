@@ -1,0 +1,12 @@
+%% IMO 2006 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCD$ be a trapezoid with parallel sides $AB > CD$.
+Points $K$ and $L$ lie on the line segments $AB$ and $CD$ respectively, so that
+  $AK / KB = KL / LC$.
+Suppose that there are points $P$ and $Q$ on the line segment $KL$ satisfying
+  $$\angle APB = \angle BCD$$
+  and
+  $$\angle CQD = \angle ABC$$.
+Prove that the points $P$, $Q$, $B$, and $C$ are concyclic.
