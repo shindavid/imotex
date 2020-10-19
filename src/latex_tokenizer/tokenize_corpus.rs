@@ -12,16 +12,29 @@ use std::path::{PathBuf};
 
 fn main() {
   let corpus: &[(&str, &str, &[&str])] = &[
-    // FIXME: support for displaymode math.
-    //("imo", "2011", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"]),
+    ("imo", "2006", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8", "g9", "g10"]),
+    ("imo", "2011", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"]),
     ("imo", "2012", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"]),
     ("imo", "2013", &["g1", "g2", "g3", "g4", "g5", "g6"]),
+    ("imo", "2014", &["g1", "g2", "g3", "g4", "g5", "g6", "g7"]),
+    ("imo", "2015", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"]),
+    ("imo", "2017", &["g1", "g2", "g3", "g4", "g5", "g6", "g7", "g8"]),
+    ("ireland", "1996", &["q1", "q2", "q3", "q4", "q7", "q8"]),
   ];
+  let mut errs = Vec::new();
   for &(tag, year, qs) in corpus.iter() {
     for q in qs.iter() {
       let doc = AnnotatedLatexDocument::open(&PathBuf::from(format!("{}/{}/{}.txt", tag, year, q))).unwrap();
       let tokens = doc.tokenize();
+      if tokens.is_err() {
+        errs.push((tag, year, q));
+      }
       println!("DEBUG: {}/{}/{}: {:?}", tag, year, q, tokens);
     }
+  }
+  if errs.len() == 0 {
+    println!("DEBUG: all passed");
+  } else {
+    println!("DEBUG: errors: n={} {:?}", errs.len(), errs);
   }
 }
