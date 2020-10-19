@@ -1,6 +1,6 @@
 %% IMO 2020 Q6
 %% transcribed by: Peter Jin
-%% license: CC-BY-SA
+%% license: CC-BY-NC-SA
 
 Prove that there exists a positive constant $c$ such that the following
 statement is true:
