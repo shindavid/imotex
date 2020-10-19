@@ -1,0 +1,11 @@
+%% IMO 2014 G5
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCD$ be a convex quadrilateral with $\angle B = \angle D = 90^\circ$.
+Point $H$ is the foot of the perpendicular from $A$ to $BD$.
+The points $S$ and $T$ are chosen on the sides $AB$ and $AD$, respectively,
+  in such a way that $H$ lies inside triangle $SCT$ and
+  $$\angle SHC - \angle BSC = 90^\circ$$,
+  $$\angle THC - \angle DTC = 90^\circ$$.
+Prove that the circumcircle of triangle $SHT$ is tangent to the line $BD$.

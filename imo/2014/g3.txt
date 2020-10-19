@@ -1,0 +1,13 @@
+%% IMO 2014 G3
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $\Omega$ and $O$ be the circumcircle and the circumcentre of an acute-angled
+  triangle $ABC$ with $AB > BC$.
+The angle bisector of $\angle ABC$ intersects $\Omega$ at $M \neq B$.
+Let $\Gamma$ be the circle with diameter $BM$.
+The angle bisectors of $\angle AOB$ and $\angle BOC$ intersect $\Gamma$ at
+  points $P$ and $Q$, respectively.
+The point $R$ is chosen on the line $PQ$ so that $BR = MR$.
+Prove that $BR \| AC$.
+(Here we always assume that an angle bisector is a ray.)

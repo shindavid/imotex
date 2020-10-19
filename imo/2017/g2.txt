@@ -1,0 +1,13 @@
+%% IMO 2017 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $R$ and $S$ be distinct points on circle $\Omega$, and let $t$ denote the
+  tangent line to $\Omega$ at $R$.
+Point $R'$ is the reflection of $R$ with respect to $S$.
+A point $I$ is chosen on the smaller arc $RS$ of $\Omega$ so that the
+  circumcircle $\Gamma$ of triangle $ISR'$ intersects $t$ at two different
+  points.
+Denote by $A$ the common point of $\Gamma$ and $t$ that is closest to $R$.
+Line $AI$ meets $\Omega$ again at $J$.
+Show that $JR'$ is tangent to $\Gamma$.

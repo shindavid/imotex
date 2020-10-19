@@ -1,0 +1,10 @@
+%% IMO 2014 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+The points $P$ and $Q$ are chosen on the side $BC$ of an acute-angled triangle
+  $ABC$ so that $\angle PAB = \angle ACB$ and $\angle QAC = \angle CBA$.
+The points $M$ and $N$ are taken on the rays $AP$ and $AQ$ respectively, so that
+  $AP = PM$ and $AQ = QN$.
+Prove that the lines $BM$ and $CN$ intersect on the circumcircle of the triangle
+  $ABC$.

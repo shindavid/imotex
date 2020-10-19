@@ -1,0 +1,14 @@
+%% IMO 2015 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be a triangle inscribed into a circle $\Omega$ with center $O$.
+A circle $\Gamma$ with center $A$ meets the side $BC$ at points $D$ and $E$ such
+  that $D$ lies between $B$ and $E$.
+Moreover, let $F$ and $G$ be the common points of $\Gamma$ and $\Omega$.
+We assume that $F$ lies on the arc $AB$ of $\Omega$ not containing $C$, and $G$
+  lies on the arc $AC$ of $\Omega$ not containing $B$.
+The circumcircles of the triangles $BDF$ and $CEG$ meet the sides $AB$ and $AC$
+  again at $K$ and $L$, respectively.
+Suppose that the lines $FK$ and $GL$ are distinct and intersect at $X$.
+Prove that the points $A$, $X$, and $O$ are collinear.

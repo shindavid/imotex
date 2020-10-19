@@ -1,0 +1,10 @@
+%% IMO 2017 G3
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $O$ be the circumcenter of an acute scalene triangle $ABC$.
+Line $OA$ intersects the altitudes of $ABC$ through $B$ and $C$ at $P$ and $Q$,
+  respectively.
+The altitudes meet at $H$.
+Prove that the circumcenter of triangle $PQH$ lies on a median of triangle
+  $ABC$.

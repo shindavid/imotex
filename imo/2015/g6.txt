@@ -1,0 +1,11 @@
+%% IMO 2015 G6
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be an acute triangle $AB > AC$, and let $\Gamma$ be its circumcircle.
+Let $H$, $M$, and $F$ be the orthocenter of the triangle, the midpoint of $BC$,
+  and the foot of the altitude from $A$, respectively.
+Let $Q$ and $K$ be the two points on $\Gamma$ that satisfy
+  $\angle AQH = 90^\circ$ and $\angle QKH = 90^\circ$.
+Prove that the circumcircles of the triangles $KQH$ and $KFM$ are tangent to
+  each other.
