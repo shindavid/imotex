@@ -1,0 +1,12 @@
+%% IMO 2019 G3
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In triangle $ABC$, let $A_1$ and $B_1$ be two points on sides $BC$ and $AC$,
+  and let $P$ and $Q$ be two points on segments $AA_1$ and $BB_1$, respectively,
+  so that line $PQ$ is parallel to $AB$.
+On ray $PB_1$, beyond $B_1$, let $P_1$ be a point so that
+  $\angle PP_1C = \angle BAC$.
+Similarly, on ray $QA_1$, beyond $A_1$, let $Q_1$ be a point so that
+  $\angle CQ_1Q = \angle CBA$.
+Show that the points $P$, $Q$, $P_1$, an $Q_1$ are concyclic.

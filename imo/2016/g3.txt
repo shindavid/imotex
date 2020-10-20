@@ -1,0 +1,15 @@
+%% IMO 2016 G3
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $B = (-1,0)$ and $C = (1,0)$ be fixed points on the coordinate plane.
+A nonempty, bounded subset $S$ of the plane is said to be \emph{nice} if
+  (i) there is a point $T$ in $S$ such that for every point $Q$ in $S$, the
+  segment $TQ$ lies entirely in $S$; and
+  (ii) for any triangle $P_1P_2P_3$, there exists a unique point $A$ in $S$ and
+  a permutation $\sigma$ of the indices $\{1, 2, 3\}$ for which triangles $ABC$
+  and $P_{\sigma(1)}P_{\sigma(2)}P_{\sigma(3)}$ are similar.
+Prove that there exist two distinct nice subsets $S$ and $S'$ of the set
+  $\{(x,y) : x \ge 0, y \ge 0\}$ such that if $A \in S$ and $A' \in S'$ are the
+  unique choices of points in (ii), then the product $BA \cdot BA'$ is constant
+  independent of the triangle $P_1P_2P_3$.

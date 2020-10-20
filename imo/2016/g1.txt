@@ -1,0 +1,11 @@
+%% IMO 2016 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In a convex pentagon $ABCDE$, let $F$ be a point on $AC$ such that
+  $\angle FBC = 90^\circ$.
+Suppose triangles $ABF$, $ACD$, and $ADE$ are similar isosceles triangles with
+  $\angle FAB = \angle FBA = \angle DAC = \angle DCA = \angle EAD = \angle EDA$.
+Let $M$ be the midpoint of $CF$.
+Point $X$ is chosen such that $AMXE$ is a parallelogram.
+Show that $BD$, $EM$, and $FX$ are concurrent.

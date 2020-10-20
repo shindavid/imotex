@@ -1,0 +1,10 @@
+%% IMO 2018 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be an acute-angled triangle with circumcircle $\Gamma$.
+Let $D$ and $E$ be points on the segments $AB$ and $AC$, respectively, such that
+  $AD = AE$.
+The perpendicular bisectors of the segments $BD$ and $CE$ intersect the small
+  arcs $AB$ and $AC$ at points $F$ and $G$ respectively.
+Prove that $DE \| FG$.

@@ -1,0 +1,12 @@
+%% IMO 2016 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be a triangle with circumcircle $\Gamma$ and incentre $I$.
+Let $M$ be the midpoint of side $BC$.
+Denote by $D$ the foot of the perpendicular from $I$ to side $BC$.
+The line through $I$ perpendicular to $AI$ meets sides $AB$ and $AC$ at $F$ and
+  $E$ respectively.
+Suppose the circumcircle of triangle $AEF$ intersects $\Gamma$ at a point $X$
+  other than $A$.
+Prove that lines $XD$ and $AM$ meet on $\Gamma$.
