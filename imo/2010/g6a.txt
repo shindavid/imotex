@@ -1,0 +1,8 @@
+%% IMO 2010 G6'
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+The vertices $X$, $Y$, $Z$ of an equilateral triangle $XYZ$ lie respectively on
+  the sides $BC$, $CA$, $AB$ of a triangle $ABC$.
+Prove that if the incenter of triangle $ABC$ lies outside triangle $XYZ$, then
+  one of the angles of triangle $ABC$ is greater than $120^\circ$.

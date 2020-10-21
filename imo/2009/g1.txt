@@ -1,0 +1,10 @@
+%% IMO 2009 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABC$ be a triangle with $AB = AC$.
+The angle bisectors of $A$ and $B$ meet the sides $BC$ and $AC$ in $D$ and $E$,
+  respectively.
+Let $K$ be the incenter of triangle $ADC$.
+Suppose that $\angle BEK = 45^\circ$.
+Find all possible values of $\angle BAC$.

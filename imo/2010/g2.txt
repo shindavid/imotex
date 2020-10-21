@@ -1,0 +1,9 @@
+%% IMO 2010 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Point $P$ lies inside triangle $ABC$.
+Lines $AP$, $BP$, $CP$, meet the circumcircle of $ABC$ again at points $K$, $L$,
+  $M$, respectively.
+The tangent to the circumcircle at $C$ meets line $AB$ at $S$.
+Prove that $SC = SP$ if and only if $MK = ML$.

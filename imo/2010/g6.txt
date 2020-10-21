@@ -1,0 +1,7 @@
+%% IMO 2010 G6
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+The vertices $X$, $Y$, $Z$ of an equilateral triangle $XYZ$ lie respectively on
+  the sides $BC$, $CA$, $AB$ of an acute-angled triangle $ABC$.
+Prove that the incenter of triangle $ABC$ lies inside triangle $XYZ$.
