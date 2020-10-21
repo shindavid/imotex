@@ -1,0 +1,10 @@
+%% IMO 2008 G7
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Let $ABCD$ be a convex quadrilateral with $AB \neq BC$.
+Denote by $\omega_1$ and $\omega_2$ the incircles of triangles $ABC$ and $ADC$.
+Suppose that there exists a circle $\omega$ inscribed in angle $ABC$, tangent
+  to the extensions of line segments $AD$ and $CD$.
+Prove that the common external tangents of $\omega_1$ and $\omega_2$ intersect
+  on $\omega$.

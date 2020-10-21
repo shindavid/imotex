@@ -1,0 +1,12 @@
+%% IMO 2007 G7
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Given an acute triangle $ABC$ with angles $\alpha$, $\beta$, and $\gamma$ at
+  vertices $A$, $B$, and $C$, respectively, such that $\beta > \gamma$.
+Point $I$ is the incenter, and $R$ is the circumradius.
+Point $D$ is the foot of the altitude from vertex $A$.
+Point $K$ lies on line $AD$ such that $AK = 2R$, and $D$ separates $A$ and $K$.
+Finally, lines $DI$ and $KI$ meet sides $AC$ and $BC$ at $E$ and $F$,
+  respectively.
+Prove that if $IE = IF$ then $\beta \leq 3\gamma$.

@@ -1,0 +1,11 @@
+%% IMO 2007 G2
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Given an isosceles triangle $ABC$ with $AB = AC$.
+The midpoint of side $BC$ is denoted by $M$.
+Let $X$ be a variable point on the shorter arc $MA$ of the circumcircle of
+  triangle $ABM$.
+Let $T$ be the point in the angle domain $BMA$, for which
+  $\angle TMX = 90^\circ$ and $TX = BX$.
+Prove that $\angle MTB - \angle CTM$ does not depend on $X$.

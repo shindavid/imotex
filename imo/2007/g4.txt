@@ -1,0 +1,10 @@
+%% IMO 2007 G4
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+Consider five points $A$, $B$, $C$, $D$, $E$ such that $ABCD$ is a parallelogram
+  and $BCED$ is a cyclic quadrilateral.
+Let $\ell$ be a line passing through $A$, and let $\ell$ intersect segment $DC$
+  and line $BC$ at points $F$ and $G$, respectively.
+Suppose that $EF = EG = EC$.
+Prove that $\ell$ is the bisector of angle $DAB$.

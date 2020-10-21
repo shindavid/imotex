@@ -1,0 +1,12 @@
+%% IMO 2008 G1
+%% transcribed by: Peter Jin
+%% license: CC-BY-NC-SA
+
+In an acute-angled triangle $ABC$, point $H$ is the orthocentre and $A_0$,
+  $B_0$, $C_0$ are the midpoints of the sides $BC$, $CA$, $AB$, respectively.
+Consider three circles passing through $H$: $\omega_a$ around $A_0$, $\omega_b$
+  around $B_0$, and $\omega_c$ around $C_0$.
+The circle $\omega_a$ intersects the line $BC$ at $A_1$ and $A_2$; $\omega_b$
+  intersects $CA$ at $B_1$ and $B_2$; $\omega_c$ intersects $AB$ at $C_1$ and
+  $C_2$.
+Show that the points $A_1$, $A_2$, $B_1$, $B_2$, $C_1$, $C_2$ lie on a circle.
