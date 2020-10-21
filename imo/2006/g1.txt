@@ -5,5 +5,5 @@
 Let $ABC$ be a triangle with incentre $I$.
 A point $P$ in the interior of the triangle satisfies
   $$\angle PBA + \angle PCA = \angle PBC + \angle PCB$$.
-Show that $AP \ge AI$ and that equality holds if and only if $P$ coincides
+Show that $AP \geq AI$ and that equality holds if and only if $P$ coincides
   with $I$.

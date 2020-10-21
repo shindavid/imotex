@@ -10,6 +10,6 @@ A nonempty, bounded subset $S$ of the plane is said to be \emph{nice} if
   a permutation $\sigma$ of the indices $\{1, 2, 3\}$ for which triangles $ABC$
   and $P_{\sigma(1)}P_{\sigma(2)}P_{\sigma(3)}$ are similar.
 Prove that there exist two distinct nice subsets $S$ and $S'$ of the set
-  $\{(x,y) : x \ge 0, y \ge 0\}$ such that if $A \in S$ and $A' \in S'$ are the
-  unique choices of points in (ii), then the product $BA \cdot BA'$ is constant
-  independent of the triangle $P_1P_2P_3$.
+  $\{(x,y) : x \geq 0, y \geq 0\}$ such that if $A \in S$ and $A' \in S'$ are
+  the unique choices of points in (ii), then the product $BA \cdot BA'$ is
+  constant independent of the triangle $P_1P_2P_3$.

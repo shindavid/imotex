@@ -2,7 +2,7 @@
 %% transcribed by: Peter Jin
 %% license: CC-BY-NC-SA
 
-Let $n \ge 3$ be an integer.
+Let $n \geq 3$ be an integer.
 Two regular $n$-gons $\mathcal A$ and $\mathcal B$ are given in the plane.
 Prove that the vertices of $\mathcal A$ that lie inside $\mathcal B$ or on its
   boundary are consecutive.

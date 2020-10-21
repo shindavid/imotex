@@ -4,6 +4,6 @@
 
 Find all functions $f$, defined on the non-negative real numbers and taking
   non-negative real values, such that:
-(i) $f(xf(y))f(y) = f(x+y)$ for all $x$, $y \ge 0$,
+(i) $f(xf(y))f(y) = f(x+y)$ for all $x$, $y \geq 0$,
 (ii) $f(2) = 0$,
-(iii) $f(x) \neq 0$ for $0 \le x < 2$.
+(iii) $f(x) \neq 0$ for $0 \leq x < 2$.

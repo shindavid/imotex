@@ -8,4 +8,4 @@ Point $P$ inside this polygon is chosen so that its projections $P_1$, \ldots,
   the polygon.
 Prove that for arbitrary points $X_1$, \ldots, $X_n$ on sides $A_1A_2$, \ldots,
   $A_nA_1$ respectively,
-  $$\max\{\frac{X_1X_2}{P_1P_2}, \ldots, \frac{X_nX_1}{P_nP_1}\} \ge 1$$.
+  $$\max\{\frac{X_1X_2}{P_1P_2}, \ldots, \frac{X_nX_1}{P_nP_1}\} \geq 1$$.

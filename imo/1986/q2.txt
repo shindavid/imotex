@@ -3,7 +3,7 @@
 %% license: CC-BY-NC-SA
 
 A triangle $A_1A_2A_3$ and a point $P_0$ are given in the plane.
-We define $A_s = A_{s-3}$ for all $s \ge 4$.
+We define $A_s = A_{s-3}$ for all $s \geq 4$.
 We construct a set of points $P_1$, $P_2$, $P_3$, $\ldots$, such that
   $P_{k+1}$ is the image of $P_k$ under a rotation with center $A_{k+1}$
   through angle $120^\circ$ clockwise (for $k = 0$, $1$, $2$, $\ldots$).
