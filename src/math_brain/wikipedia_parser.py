@@ -4,64 +4,13 @@ Does a best-effort parse of a wikipedia article.
 """
 import os
 import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from typing import Dict, List, Optional
 import xml.etree.ElementTree as ET
 
-from web_cache import WebCache
-
-
-def elem_to_str(elem: ET.Element) -> str:
-    return ET.tostring(elem).decode('utf-8')
-
-
-def ellipsize(s: str, n: Optional[int]=None) -> str:
-    if n is None or len(s) <= n:
-        return s
-    return f'{s[:n-3]}...'
-
-
-def get_inside_text(element: ET.Element) -> Optional[str]:
-    """
-    Returns everything between <foo> and closing </foo>.
-
-    Note that ET.tostring() works if you want the tags as well.
-
-    Adapted from: https://stackoverflow.com/a/381614/543913
-    """
-    tokens = [element.text or '']
-    tokens.extend(map(elem_to_str, element))
-    tokens.append(element.tail or '')
-    return ''.join(tokens).strip()
-
-
-def get_nodes(
-        tree: ET.Element,
-        tag: Optional[str]=None,
-        attribs: Optional[Dict[str, str]]=None
-        ) -> List[ET.Element]:
-    """
-    Returns the top-level nodes of <tree> which match <tag> and whose attrib
-    mappings contains <attribs>.
-    """
-    if attribs is None:
-        attribs = {}
-
-    return [node for node in list(tree) if node.tag == tag and
-            all([node.attrib.get(k, None)==v for k, v in attribs.items()])]
-
-
-def get_node(*args, index: Optional[int]=None, **kwargs) -> ET.Element:
-    """
-    Calls get_nodes(*args, **kwargs).
-
-    If index is None, asserts that only one such node matches, and returns it.
-    Otherwise, returns the <index>'th node.
-    """
-    nodes = get_nodes(*args, **kwargs)
-    if index is None:
-        assert len(nodes)==1
-        return nodes[0]
-    return nodes[index]
+from util.str_util import ellipsize, get_html_header_level
+from util.web_cache import WebCache
+from util.xml_util import elem_to_str, get_inside_text, get_node
 
 
 def latexify(tree: ET.Element):
@@ -93,15 +42,6 @@ def latexify(tree: ET.Element):
         return
     for elem in tree:
         latexify(elem)
-
-
-def get_header_level(tag: str) -> Optional[int]:
-    """
-    'h1' -> 1
-    """
-    if tag[0] == 'h' and tag[1:].isdigit():
-        return int(tag[1:])
-    return None
 
 
 def is_irrelevant(elem: ET.Element) -> bool:
@@ -140,7 +80,7 @@ class WikiTree:
     ET.Elements devoid of relevant content are stripped out.
     """
     def __init__(self, header: ET.Element, body: List[ET.Element]):
-        header_level = get_header_level(header.tag)
+        header_level = get_html_header_level(header.tag)
         assert header_level is not None
         if header_level == 1:
             # This is the top-level header, the name of the article
@@ -153,13 +93,13 @@ class WikiTree:
 
         nodes = [elem for elem in body if not is_irrelevant(elem)]
         n = len(nodes)
-        sub_lvls = [get_header_level(node.tag) for node in nodes]
+        sub_lvls = [get_html_header_level(node.tag) for node in nodes]
         sub_lvls = [lvl for lvl in sub_lvls if lvl is not None]
         intro_bound = n
         if sub_lvls:
             next_lvl = min(sub_lvls)
             assert next_lvl > header_level
-            sub_indices = [i for (i, node) in enumerate(nodes) if get_header_level(node.tag) == next_lvl]
+            sub_indices = [i for (i, node) in enumerate(nodes) if get_html_header_level(node.tag) == next_lvl]
             intro_bound = sub_indices[0]
             num_sub_indices = len(sub_indices)
             sub_indices.append(len(nodes))  # to make loop cleaner
