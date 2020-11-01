@@ -1,6 +1,9 @@
+#!/usr/bin/env python3
 """
 Does a best-effort parse of a wikipedia article.
 """
+import os
+import sys
 from typing import Dict, List, Optional
 import xml.etree.ElementTree as ET
 
@@ -11,8 +14,8 @@ def elem_to_str(elem: ET.Element) -> str:
     return ET.tostring(elem).decode('utf-8')
 
 
-def ellipsize(s: str, n: int) -> str:
-    if len(s) <= n:
+def ellipsize(s: str, n: Optional[int]=None) -> str:
+    if n is None or len(s) <= n:
         return s
     return f'{s[:n-3]}...'
 
@@ -164,6 +167,9 @@ class WikiTree:
                 sub_index = sub_indices[h]
                 next_sub_index = sub_indices[h+1]
                 tree = WikiTree(nodes[sub_index], nodes[sub_index+1:next_sub_index])
+                if tree.title in ('See also', 'References', 'Further reading', 'External links'):
+                    # maybe these could be useful but leaving it out looks prettier for now
+                    continue
                 branches.append(tree)
 
         intro = nodes[:intro_bound]
@@ -189,13 +195,13 @@ class WikiTree:
     def branches(self) -> List['WikiTree']:
         return self._branches
 
-    def dump(self, column_width=80):
+    def dump(self, column_width: Optional[int]=None):
         indent = '*' * (self.level - 1)
-        str_len = column_width - len(indent)
+        str_len = None if column_width is None else (column_width - len(indent))
         print(f'{indent}{ellipsize(self.title, str_len)}')
         print('')
         indent = ' ' * self.level
-        str_len = column_width - len(indent)
+        str_len = None if column_width is None else (column_width - len(indent))
         for elem in self.intro:
             print(f'{indent}{ellipsize(elem_to_str(elem), str_len)}')
             print('')
@@ -243,7 +249,7 @@ class WikiArticle:
     def root(self) -> WikiTree:
         return self._root
 
-    def dump(self, column_width=80):
+    def dump(self, column_width: Optional[int]=None):
         self.root.dump(column_width)
 
 
@@ -262,8 +268,19 @@ class WikipediaParser:
 
 
 def main():
+    if len(sys.argv) != 2:
+        script = os.path.basename(__file__)
+        print(f'Usage: {script} <TOPIC>')
+        print(f'Example: {script} circle')
+        pass
+
+    topic = sys.argv[1].lower()
     parser = WikipediaParser()
-    parser.parse('https://en.wikipedia.org/wiki/Circle').dump(1024)
+    if not topic.startswith('http'):
+        url = f'https://en.wikipedia.org/wiki/{topic}'
+    else:
+        url = topic
+    parser.parse(url).dump()
 
 
 if __name__ == '__main__':

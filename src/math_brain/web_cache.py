@@ -19,7 +19,6 @@ class WebCache:
         """
         self._cache_dir = cache_dir
         if not os.path.isdir(cache_dir):
-            print(f'Creating cache: {cache_dir}')
             os.makedirs(cache_dir)
         for m in mode:
             assert m in 'rw', f'Invalid mode: "{mode}"'
@@ -31,12 +30,12 @@ class WebCache:
         """
         Takes a url and returns the url content.
         """
+        url = url.lower()  # to normalize cache
         stripped_url = self._http_regex.sub('', url).strip().strip('/')
         cache_file = os.path.join(self._cache_dir, stripped_url)
         if self._read_mode and os.path.isfile(cache_file):
             with open(cache_file) as f:
                 return f.read()
-        print(f'Accessing: {url}')
         with urllib.request.urlopen(url) as u:
             text = u.read().decode('utf-8')
             if self._write_mode:
