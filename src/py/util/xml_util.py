@@ -39,7 +39,7 @@ def get_node(
     nodes = [node for node in list(tree) if node.tag == tag and
             all([node.attrib.get(k, None)==v for k, v in attribs.items()])]
     if index is None:
-        assert len(nodes)==1
+        assert len(nodes)==1, [(node.tag, node.attrib) for node in list(tree)]
         return nodes[0]
     return nodes[index]
 
