@@ -12,6 +12,32 @@ from util.web_cache import WebCache
 from util.xml_util import get_inside_text, get_node
 
 
+class ExtraSection:
+    def __init__(self, title):
+        self._title = title
+        self._lines = []
+        self._text = None
+
+    def append(self, line):
+        self._lines.append(line)
+
+    def finalize(self):
+        self._text = '\n'.join(self._lines)
+        self._lines = None
+
+    @property
+    def title(self) -> str:
+        return self._title
+
+    @property
+    def text(self) -> str:
+        return self._text
+
+    def dump(self):
+        print(f'** {self.title} **')
+        print(self.text)
+
+
 class EncyclopediaOfMathArticle:
     """
     A structured representation of an encyclopediaofmath.org article.
@@ -50,23 +76,50 @@ class EncyclopediaOfMathArticle:
         body_content = get_node(inner_content, 'div', {'id': 'bodyContent'})
         mw_content_text = get_node(body_content, 'div', {'id': 'mw-content-text'})
         text_area = get_node(mw_content_text, 'textarea', {'id': 'wpTextbox1'})
-        text = get_inside_text(text_area)
+        complete_text = get_inside_text(text_area)
+
+        # text can contain extra sections that start with ==== (references, comments)
+        main_text_lines = []
+        extra_sections = []
+        for line in complete_text.splitlines():
+            if line.startswith('====') and line.endswith('===='):
+                section_name = line[4:-4]
+                assert section_name in ('References', 'Comments'), line
+                section = ExtraSection(section_name)
+                extra_sections.append(section)
+                continue
+            if extra_sections:
+                extra_sections[-1].append(line)
+            else:
+                main_text_lines.append(line)
+
+        for section in extra_sections:
+            section.finalize()
 
         self._topic = topic
-        self._text = text
+        self._main_text = '\n'.join(main_text_lines)
+        self._extra_sections = extra_sections
 
     @property
     def topic(self) -> str:
         return self._topic
 
     @property
-    def text(self) -> str:
-        return self._text
+    def main_text(self) -> str:
+        return self._main_text
 
-    def dump(self):
-        print(f'** {self.topic} **')
+    @property
+    def extra_sections(self) -> List[ExtraSection]:
+        return self._extra_sections
+
+    def dump(self, include_extra_sections=False):
+        print(f'* {self.topic} *')
         print('')
-        print(self.text)
+        print(self.main_text)
+        if include_extra_sections:
+            for section in self.extra_sections:
+                print('')
+                section.dump()
 
 
 def to_edit_page(url: str) -> str:
