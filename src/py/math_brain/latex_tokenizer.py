@@ -126,7 +126,10 @@ class LatexTokenizer:
             self.commit_text(''.join(math_item.buf))
             self.commit(LatexTokens.from_char(c, True))
             self.enqueue(math_item)
-        elif c.isspace() or c.isnumeric():
+        elif c.isspace():
+            # math-mode can ignore whitespace
+            self.enqueue(math_item)
+        elif c.isnumeric():
             self.commit_text(''.join(math_item.buf))
             self.enqueue(math_item)
             self.commit(LatexTokens.from_char(c, True))
