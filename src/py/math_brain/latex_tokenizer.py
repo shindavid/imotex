@@ -228,7 +228,7 @@ class Items:
                 self.push_to(tokenizer)
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.InlineMath(MathStart.Dollar, Pos.Begin))
-            elif c in '.,?;:()':
+            elif c in '.,?;:(){}':
                 self.push_to(tokenizer)
                 tokenizer.commit(LatexTokens.from_char(c))
                 tokenizer.enqueue(Items.Text())
@@ -236,14 +236,6 @@ class Items:
                 self.push_to(tokenizer)
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.from_char(c))
-            elif c == '{':
-                self.push_to(tokenizer)
-                tokenizer.commit(LatexTokens.LGroup())
-                tokenizer.enqueue(Items.Text())
-            elif c == '}':
-                self.push_to(tokenizer)
-                tokenizer.commit(LatexTokens.RGroup())
-                tokenizer.enqueue(Items.Text())
             else:
                 self.buf.append(c)
                 tokenizer.enqueue(self)
