@@ -232,7 +232,7 @@ class Items:
                 self.push_to(tokenizer)
                 tokenizer.commit(LatexTokens.from_char(c))
                 tokenizer.enqueue(Items.Text())
-            elif c in "`'":
+            elif c in "`'\\" or c.isspace():
                 self.push_to(tokenizer)
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.from_char(c))
