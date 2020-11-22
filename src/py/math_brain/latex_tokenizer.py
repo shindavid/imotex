@@ -15,6 +15,20 @@ import sys
 from typing import List, Optional, Union
 
 
+DEBUG = False
+def debug_print(x):
+    if DEBUG:
+        print(x)
+
+
+char = str
+
+
+def char_repr(c: char):
+    c = r'\n' if c=='\n' else c
+    return f'"{c}"'
+
+
 class Mode(Enum):
     Text = 0
     InlineMath = 1
@@ -65,11 +79,19 @@ class Item(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def handle(self, tokenizer: 'LatexTokenizer', c: str) -> Optional[bool]:
+    def handle(self, tokenizer: 'LatexTokenizer', c: char) -> Optional[bool]:
         """
         A truthy return value indicates that the parent loop should continue.
         """
         pass
+
+
+class BufItem(Item, metaclass=ABCMeta):
+    def __init__(self, s: StrBufLike=None):
+        self.buf: StrBuf = to_str_buf(s)
+
+    def __str__(self):
+        return f'[{type_str(self)}:{"".join(self.buf)}]'
 
 
 class LatexTokenizer:
@@ -78,53 +100,60 @@ class LatexTokenizer:
         self.mode: Mode = Mode.Text
         self.toks: List[LatexToken] = []
 
+    def buf_commit(self, item: BufItem):
+        if not item.buf: return
+        self.commit(LatexTokens.Text(item.buf))
+
     def commit_text(self, buf: str):
         if buf:
             self.commit(LatexTokens.Text(buf))
 
     def commit(self, token: LatexToken):
-        # print(f'Commit: {token}')
+        debug_print(f'Commit: {token}')
         assert isinstance(token, LatexToken)
         self.toks.append(token)
 
     def enqueue(self, item: Item):
-        #print(f'Enqueue: {item}')
+        debug_print(f'Enqueue: {item}')
         self.stack.append(item)
 
     def pop(self) -> Item:
         return self.stack.pop()
 
-    def tokenize_math_char(self, buf: StrBuf, c: str, item_lambda):
-        # print(f'tokenize_math_char({"".join(buf)}, {c})')
-        text = ''.join(buf)
-        if c in "+-<>.,?;:[]()\\^_{}'":
-            self.commit_text(text)
+    def tokenize_math_char(self, math_item: 'BufItem', c: char):
+        debug_print(f'tokenize_math_char({math_item}, {char_repr(c)})')
+        if c in "+-<>.,?;:[]()^_{}'":
+            self.commit_text(''.join(math_item.buf))
             self.commit(LatexTokens.from_char(c, True))
-            self.enqueue(item_lambda(Pos.End))
-        elif c.isspace() or c.isnumeric() or c in '\\':
-            self.commit_text(text)
-            self.enqueue(item_lambda(Pos.End))
+            self.enqueue(math_item)
+        elif c.isspace() or c.isnumeric():
+            self.commit_text(''.join(math_item.buf))
+            self.enqueue(math_item)
             self.commit(LatexTokens.from_char(c, True))
+        elif c == '\\':
+            self.commit_text(''.join(math_item.buf))
+            self.enqueue(math_item)
+            self.enqueue(Items.Command())
         else:
-            self.commit_text(text)
-            self.enqueue(item_lambda(Pos.End, c))
+            self.commit_text(c)
+            self.enqueue(math_item)
 
-    def tokenize_char(self, c: str):
-        # print(f'tokenize_char({c})')
+    def tokenize_char(self, c: char):
+        debug_print(f'tokenize_char({char_repr(c)})')
         while self.stack:
             item: Item = self.stack.pop()
-            # print(f'stack: {item}')
+            debug_print(f'stack: {item} {char_repr(c)}')
             if not item.handle(self, c):
                 break
 
     def tokenize(self, source: str):
-        # print('Reading source')
+        debug_print('Reading source')
         for c in source:
             self.tokenize_char(c)
-        # print('Popping remaining stack')
+        debug_print('Popping remaining stack')
         while self.stack:
             item = self.stack.pop()
-            # print(f'stack: {item}')
+            debug_print(f'stack: {item}')
             for tok in item.to_toks():
                 self.commit(tok)
 
@@ -190,7 +219,7 @@ class LatexTokens:
     })
 
     @staticmethod
-    def from_char(c: str, cmd=False) -> LatexToken:
+    def from_char(c: char, cmd=False) -> LatexToken:
         if c in LatexTokens.punct_chars:
             return LatexTokens.Punct(c)
         if c in LatexTokens.symbol_chars:
@@ -205,35 +234,23 @@ class LatexTokens:
         return cmap[c]()
 
 
-class TextPushableItem(Item, metaclass=ABCMeta):
-    def __init__(self, s: StrBufLike=None):
-        self.buf: StrBuf = to_str_buf(s)
-
-    def __str__(self):
-        return f'[{type_str(self)}:{"".join(self.buf)}]'
-
-    def push_to(self, tokenizer: LatexTokenizer):
-        if not self.buf: return
-        tokenizer.commit(LatexTokens.Text(self.buf))
-
-
 class Items:
-    class Text(TextPushableItem):
+    class Text(BufItem):
         def to_toks(self):
             return [LatexTokens.Text(self.buf)] if self.buf else []
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             tokenizer.mode = Mode.Text
             if c == '$':
-                self.push_to(tokenizer)
+                tokenizer.buf_commit(self)
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.InlineMath(MathStart.Dollar, Pos.Begin))
             elif c in '.,?;:(){}':
-                self.push_to(tokenizer)
+                tokenizer.buf_commit(self)
                 tokenizer.commit(LatexTokens.from_char(c))
                 tokenizer.enqueue(Items.Text())
             elif c in "`'\\" or c.isspace():
-                self.push_to(tokenizer)
+                tokenizer.buf_commit(self)
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.from_char(c))
             else:
@@ -244,7 +261,7 @@ class Items:
         def to_toks(self):
             return [LatexTokens.LQuote()]
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             if c == '`':
                 tokenizer.commit(LatexTokens.LDQuote())
             else:
@@ -255,7 +272,7 @@ class Items:
         def to_toks(self):
             return [LatexTokens.RQuote()]
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             if c == "'":
                 tokenizer.commit(LatexTokens.RDQuote())
             else:
@@ -269,7 +286,7 @@ class Items:
         def to_toks(self):
             return [LatexTokens.Number(self.buf)] if self.buf else []
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             if c.isnumeric():
                 self.buf.append(c)
                 tokenizer.enqueue(self)
@@ -278,15 +295,15 @@ class Items:
                 tokenizer.commit(LatexTokens.Number(self.buf))
                 return True
 
-    class Command(TextPushableItem):
+    class Command(BufItem):
         def to_toks(self):
             return [LatexTokens.Command(self.buf)] if self.buf else []
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             if not self.buf and c == '[':
                 item: Item = tokenizer.pop()
                 assert type(item) == Items.Text
-                item.push_to(tokenizer)
+                tokenizer.buf_commit(item)
                 tokenizer.commit(LatexTokens.StartInlineMath())
                 tokenizer.enqueue(Items.Text())
                 tokenizer.enqueue(Items.InlineMath(MathStart.Bracket, Pos.End))
@@ -294,13 +311,19 @@ class Items:
                 item: Item = tokenizer.pop()
                 assert type(item) == Items.InlineMath
                 assert item.start == MathStart.Bracket
-                self.push_to(tokenizer)
+                tokenizer.buf_commit(self)
                 tokenizer.commit(LatexTokens.EndInlineMath())
             elif not self.buf and c in '{}|':
                 tokenizer.commit(LatexTokens.from_char(c, cmd=True))
             elif c.isalpha():
                 self.buf.append(c)
                 tokenizer.enqueue(Items.Command(self.buf))
+            elif c == ' ':
+                if not self.buf:
+                    # "/ " is a whitespace command
+                    self.buf.append(c)
+                tokenizer.commit(LatexTokens.Command(self.buf))
+                return True
             else:
                 assert self.buf
                 tokenizer.commit(LatexTokens.Command(self.buf))
@@ -310,7 +333,7 @@ class Items:
         def to_toks(self):
             return [LatexTokens.Space()]
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             if c.isspace():
                 tokenizer.enqueue(self)
             else:
@@ -318,11 +341,14 @@ class Items:
                     tokenizer.commit(LatexTokens.Space())
                 return True
 
-    class InlineMath(TextPushableItem):
+    class InlineMath(BufItem):
         def __init__(self, start: MathStart, pos: Pos, s: StrBufLike=None):
             self.start = start
             self.pos = pos
             super().__init__(s)
+
+        def __str__(self):
+            return f'[{type_str(self)}:{self.start}:{self.pos}]'
 
         @staticmethod
         def lambda_init(start: MathStart):
@@ -331,26 +357,29 @@ class Items:
         def to_toks(self):
             raise Exception(f'Unterminated InlineMath({self.start})')
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             tokenizer.mode = Mode.InlineMath
             if self.pos == Pos.Begin:
                 if c == '$':
                     assert self.start == MathStart.Dollar
                     assert not self.buf
+                    tokenizer.enqueue(Items.Text())
                     tokenizer.enqueue(Items.DisplayMath(Pos.Begin))
-                    return True
+                    return
                 else:
                     tokenizer.commit(LatexTokens.StartInlineMath())
             if c == '$':
                 assert self.start == MathStart.Dollar
-                self.push_to(tokenizer)
+                tokenizer.buf_commit(self)
                 tokenizer.commit(LatexTokens.EndInlineMath())
             else:
-                tokenizer.tokenize_math_char(self.buf, c, Items.InlineMath.lambda_init(self.start))
+                self.pos = Pos.End
+                tokenizer.tokenize_math_char(self, c)
 
-    class DisplayMath(TextPushableItem):
+    class DisplayMath(BufItem):
         def __init__(self, pos: Pos, s: StrBufLike=None):
             self.pos = pos
+            self.close_count = 0
             super().__init__(s)
 
         def __str__(self):
@@ -359,16 +388,24 @@ class Items:
         def to_toks(self):
             raise Exception('Unterminated DisplayMath')
 
-        def handle(self, tokenizer: LatexTokenizer, c: str):
+        def handle(self, tokenizer: LatexTokenizer, c: char):
             tokenizer.mode = Mode.DisplayMath
-            if self.pos == Pos.End:
+            if self.pos == Pos.Begin:
                 assert c != '$'
-                tokenizer.commit(LatexTokens.EndDisplayMath())
-                return True
+                tokenizer.commit(LatexTokens.StartDisplayMath())
+                tokenizer.enqueue(Items.Text())
+                tokenizer.enqueue(Items.DisplayMath(Pos.End))
+                return
             if c == '$':
-                tokenizer.enqueue(Items.DisplayMath(Pos.End, self.buf))
+                self.close_count += 1
+                if self.close_count == 1:
+                    tokenizer.buf_commit(self)
+                    tokenizer.enqueue(self)
+                else:
+                    tokenizer.commit(LatexTokens.EndDisplayMath())
             else:
-                tokenizer.tokenize_math_char(self.buf, c, Items.DisplayMath)
+                self.pos = Pos.End
+                tokenizer.tokenize_math_char(self, c)
 
     char_map = {
         '`': LQuote,
@@ -376,7 +413,7 @@ class Items:
     }
 
     @staticmethod
-    def from_char(c: str) -> Item:
+    def from_char(c: char) -> Item:
         if c == '\\':
             return Items.Command(c)
         if c.isspace():
