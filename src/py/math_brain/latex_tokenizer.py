@@ -122,7 +122,7 @@ class LatexTokenizer:
 
     def tokenize_math_char(self, math_item: 'BufItem', c: char):
         debug_print(f'tokenize_math_char({math_item}, {char_repr(c)})')
-        if c in "+-<>.,?;:[]()^_{}'":
+        if c in "+-=<>.,?;:[]()^_{}'":
             self.commit_text(''.join(math_item.buf))
             self.commit(LatexTokens.from_char(c, True))
             self.enqueue(math_item)
@@ -199,7 +199,7 @@ class LatexTokens:
     class EndDisplayMath(LatexToken): pass
 
     punct_chars = '.,?;:'
-    symbol_chars = '+-<>'
+    symbol_chars = '+-<>='
 
     char_map = {
         '[': LBrack,
