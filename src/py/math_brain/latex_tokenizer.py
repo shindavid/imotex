@@ -12,21 +12,16 @@ from abc import ABCMeta, abstractmethod
 from enum import Enum, auto
 import os
 import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 from typing import List, Optional, Union
+
+from util.py_util import char, char_repr, type_str
 
 
 DEBUG = False
 def debug_print(x):
     if DEBUG:
         print(x)
-
-
-char = str
-
-
-def char_repr(c: char):
-    c = r'\n' if c=='\n' else c
-    return f'"{c}"'
 
 
 class Mode(Enum):
@@ -43,14 +38,6 @@ class MathStart(Enum):
 class Pos(Enum):
     Begin = auto()
     End = auto()
-
-
-def type_str(s):
-    s = str(type(s))
-    s = s.split("'")[1]
-    s = s.replace('__main__.', '')
-    s = s.split('.')[-1]
-    return s
 
 
 StrBuf = List[str]
