@@ -9,7 +9,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 Adapted from Peter Jin's tokenizer.rs
 """
 from abc import ABCMeta, abstractmethod
-from enum import Enum
+from enum import Enum, auto
 import os
 import sys
 from typing import List, Optional, Union
@@ -30,19 +30,19 @@ def char_repr(c: char):
 
 
 class Mode(Enum):
-    Text = 0
-    InlineMath = 1
-    DisplayMath = 2
+    Text = auto()
+    InlineMath = auto()
+    DisplayMath = auto()
 
 
 class MathStart(Enum):
-    Dollar = 0
-    Bracket = 1
+    Dollar = auto()
+    Bracket = auto()
 
 
 class Pos(Enum):
-    Begin = 0
-    End = 1
+    Begin = auto()
+    End = auto()
 
 
 def type_str(s):
